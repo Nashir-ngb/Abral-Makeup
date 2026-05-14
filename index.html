@@ -1,0 +1,2833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abral Makeup, Veiling & Bridals</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      /* Rich, elegant color palette */
+      --gold: #D4AF37;
+      --gold-light: #F3E5AB;
+      --gold-dark: #997A00;
+
+      /* Rich jewel tones for elegance */
+      --wine-dark: #2A0813;
+      --wine-mid: #4A1525;
+      --wine-light: #7A2841;
+
+      --cream: #FCF9F2;
+      --blush: #F9EFEF;
+      --dark: #120A0D;
+      --soft: #6A525B;
+      --white: #FFFFFF;
+
+      --border: rgba(212, 175, 55, 0.3);
+      --border-light: rgba(212, 175, 55, 0.15);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: rgba(252, 249, 242, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      transition: padding 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--wine-dark);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--soft);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--wine-mid);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.8rem;
+      border: 1px solid var(--gold);
+      color: var(--gold-dark);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--wine-dark);
+      transition: all 0.3s;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .reveal-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
+
+    .delay-500 {
+      transition-delay: 500ms;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 80% 30%, rgba(122, 40, 65, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 20% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+      z-index: 0;
+      will-change: transform;
+    }
+
+    /* ── PARALLAX ── */
+    .parallax-bg {
+      will-change: transform;
+      transition: transform 0.05s linear;
+    }
+
+    /* ── HERO COLLAGE (Layered Composition) ── */
+    .hero-collage {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 520px;
+      height: 600px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .collage-shape {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      box-shadow: 0 20px 40px rgba(42, 8, 19, 0.15);
+      overflow: hidden;
+    }
+
+    .collage-shape::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
+    }
+
+    .collage-arch {
+      width: 280px;
+      height: 400px;
+      right: 20px;
+      top: 20px;
+      border-radius: 140px 140px 0 0;
+      background: linear-gradient(135deg, #7A2841, #2A0813);
+      z-index: 3;
+      animation: float-slow 12s ease-in-out infinite;
+      color: rgba(252, 249, 242, 0.6);
+      font-size: 1.3rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .collage-circle {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      left: 0;
+      bottom: 60px;
+      background: linear-gradient(135deg, #D4AF37, #997A00);
+      z-index: 4;
+      animation: float-slow 10s ease-in-out infinite reverse;
+      color: rgba(42, 8, 19, 0.7);
+      font-size: 1.2rem;
+      border: 1px solid rgba(252, 249, 242, 0.2);
+    }
+
+    .collage-blob {
+      width: 220px;
+      height: 220px;
+      left: 80px;
+      top: 100px;
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      background: linear-gradient(135deg, #4A1525, #8A3352);
+      z-index: 2;
+      animation: blob-transform 15s ease-in-out infinite;
+      color: rgba(252, 249, 242, 0.5);
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .collage-bg-blob {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 380px;
+      height: 380px;
+      background: rgba(212, 175, 55, 0.06);
+      border-radius: 50%;
+      filter: blur(50px);
+      z-index: 1;
+    }
+
+    .collage-accent-1 {
+      position: absolute;
+      right: -10px;
+      bottom: 40px;
+      width: 140px;
+      height: 140px;
+      z-index: 5;
+      animation: rotate-slow 30s linear infinite;
+    }
+
+    .collage-accent-2 {
+      position: absolute;
+      left: 60px;
+      top: -10px;
+      width: 120px;
+      height: 120px;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    @keyframes float-slow {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(1deg);
+      }
+
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    @keyframes blob-transform {
+      0% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+        transform: translate(-10px, 15px) scale(1.05);
+      }
+
+      66% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate(15px, -10px) scale(0.95);
+      }
+
+      100% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    @keyframes rotate-slow {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 680px;
+      z-index: 10;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--wine-mid);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 400;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 45px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6.5vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--wine-dark);
+      margin-bottom: 1.6rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--soft);
+      max-width: 500px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.6rem;
+      background: linear-gradient(135deg, var(--wine-mid), var(--wine-dark));
+      color: var(--white);
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 4px 15px rgba(74, 21, 37, 0.3);
+      border-radius: 4px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 21, 37, 0.4);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 1rem 2.6rem;
+      border: 1px solid var(--wine-mid);
+      color: var(--wine-mid);
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark);
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3.5rem;
+      margin-top: 4.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 7rem 4rem;
+      overflow: hidden;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--wine-dark);
+    }
+
+    h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--wine-dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-parallax-bg {
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle at top right, rgba(122, 40, 65, 0.25), transparent 55%),
+        radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.08), transparent 55%);
+      will-change: transform;
+      z-index: 0;
+    }
+
+    #services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(122, 40, 65, 0.2), transparent 50%);
+      pointer-events: none;
+    }
+
+    #services .section-label {
+      color: var(--gold-light);
+    }
+
+    #services .section-label::before {
+      background: var(--gold-light);
+    }
+
+    #services h2 {
+      color: var(--white);
+    }
+
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 5rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-sub {
+      font-size: 1rem;
+      color: rgba(252, 249, 242, 0.7);
+      max-width: 380px;
+      line-height: 1.8;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: rgba(212, 175, 55, 0.1);
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .service-card {
+      padding: 3rem 2.4rem;
+      background: var(--wine-dark);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(122, 40, 65, 0.0), rgba(212, 175, 55, 0.05));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      border-color: var(--gold);
+    }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      color: rgba(212, 175, 55, 0.2);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+      transition: color 0.4s;
+    }
+
+    .service-card:hover .service-num {
+      color: rgba(212, 175, 55, 0.4);
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .service-desc {
+      font-size: 0.95rem;
+      color: rgba(252, 249, 242, 0.6);
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .service-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1.5rem;
+      transition: width 0.4s ease;
+      position: relative;
+    }
+
+    .service-card:hover .service-line {
+      width: 70px;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio {
+      background: var(--cream);
+    }
+
+    .gallery-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .gallery-sub {
+      font-size: 1rem;
+      color: var(--soft);
+      max-width: 350px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 15px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+
+    .gallery-item:hover .gallery-placeholder {
+      transform: scale(1.05);
+    }
+
+    /* Rich elegant gradients for placeholders */
+    .g1 {
+      background: linear-gradient(135deg, #3A1020 0%, #7A2841 100%);
+    }
+
+    .g2 {
+      background: linear-gradient(135deg, #1F151B 0%, #4A1525 100%);
+    }
+
+    .g3 {
+      background: linear-gradient(135deg, #1A1210 0%, #3A2318 100%);
+    }
+
+    .g4 {
+      background: linear-gradient(135deg, #4A1525 0%, #99334D 100%);
+    }
+
+    .g5 {
+      background: linear-gradient(135deg, #24141A 0%, #522233 100%);
+    }
+
+    .gallery-label {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 1.8rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white);
+      font-weight: 400;
+      z-index: 2;
+      transform: translateY(10px);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-label {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 10, 15, 0.8) 0%, rgba(26, 10, 15, 0.1) 50%, rgba(26, 10, 15, 0) 100%);
+      opacity: 0.4;
+      transition: opacity 0.4s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 0.8;
+    }
+
+    .gallery-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover .gallery-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .gallery-placeholder .inner-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: rgba(252, 249, 242, 0.8);
+      letter-spacing: 0.08em;
+      font-style: italic;
+      text-align: center;
+      padding: 1rem;
+      pointer-events: none;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-cta {
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--blush);
+      padding: 5rem 4rem;
+      margin: 0 4rem 4rem;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::after {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15rem;
+      color: rgba(212, 175, 55, 0.08);
+      line-height: 1;
+      z-index: 0;
+    }
+
+    .testimonials h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--wine-dark);
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      position: relative;
+      z-index: 1;
+      padding-top: 40px;
+    }
+
+    .testimonial {
+      padding: 3rem 2.5rem 2.5rem;
+      background: var(--white);
+      border-top: 3px solid var(--wine-mid);
+      box-shadow: 0 10px 30px rgba(42, 8, 19, 0.05);
+      transition: transform 0.3s ease;
+      border-radius: 0 0 4px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(42, 8, 19, 0.1);
+      border-color: var(--gold);
+    }
+
+    .testimonial-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: -75px;
+      margin-bottom: 1.5rem;
+      border: 4px solid var(--white);
+      box-shadow: 0 5px 15px rgba(42, 8, 19, 0.15);
+      background: var(--cream);
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: var(--soft);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--wine-mid);
+      font-weight: 500;
+    }
+
+    /* ── SHOP ── */
+    #shop {
+      background: var(--cream);
+      padding-top: 2rem;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(42, 8, 19, 0.08);
+    }
+
+    .product-img {
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: rgba(252, 249, 242, 0.7);
+      font-style: italic;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+    }
+
+    .p1 {
+      background: linear-gradient(160deg, #8C6A5A, #D4AF37);
+    }
+
+    .p2 {
+      background: linear-gradient(160deg, #7A2841, #B34766);
+    }
+
+    .p3 {
+      background: linear-gradient(160deg, #2A1525, #5A354A);
+    }
+
+    .p4 {
+      background: linear-gradient(160deg, #4A3A24, #997A00);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: var(--wine-dark);
+    }
+
+    .product-type {
+      font-size: 0.8rem;
+      color: var(--soft);
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    .product-price {
+      font-size: 0.95rem;
+      color: var(--wine-mid);
+      font-weight: 500;
+    }
+
+    .shop-footer {
+      margin-top: 4rem;
+      padding: 2rem 3rem;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--wine-mid);
+    }
+
+    .shop-footer-text {
+      font-size: 1rem;
+      color: var(--wine-dark);
+      font-weight: 400;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.9rem 2.2rem;
+      background: #25D366;
+      color: white;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1DA851;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-icon {
+      font-size: 1.2rem;
+    }
+
+    /* ── BOOK ── */
+    #book {
+      background: var(--wine-dark);
+      position: relative;
+    }
+
+    #book::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.1), transparent 60%);
+      pointer-events: none;
+    }
+
+    #book .section-label {
+      color: var(--gold-light);
+    }
+
+    #book .section-label::before {
+      background: var(--gold-light);
+    }
+
+    #book h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .book-sub {
+      color: rgba(252, 249, 242, 0.7);
+      margin-bottom: 4rem;
+      font-size: 1.05rem;
+      max-width: 500px;
+    }
+
+    .book-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .book-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(252, 249, 242, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      color: var(--white);
+      padding: 1rem 1.2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      outline: none;
+      transition: all 0.3s ease;
+      -webkit-appearance: none;
+      border-radius: 4px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(252, 249, 242, 0.08);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    }
+
+    .form-group select option {
+      background: var(--wine-dark);
+      color: var(--white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      padding: 1.1rem 2.6rem;
+      background: var(--gold);
+      color: var(--wine-dark);
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .book-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .book-info-item {
+      padding: 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .book-info-item:hover {
+      transform: translateX(5px);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .book-info-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .book-info-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .book-info-sub {
+      font-size: 0.9rem;
+      color: rgba(252, 249, 242, 0.5);
+      margin-top: 0.4rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .price-item {
+      padding: 1.2rem;
+      background: rgba(212, 175, 55, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 4px;
+    }
+
+    .price-name {
+      font-size: 0.85rem;
+      color: rgba(252, 249, 242, 0.7);
+      margin-bottom: 0.4rem;
+    }
+
+    .price-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--gold-light);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--cream);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #4A1525 0%, #7A2841 50%, #D4AF37 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(42, 8, 19, 0.15);
+    }
+
+    .about-img-inner {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: rgba(252, 249, 242, 0.5);
+      font-style: italic;
+    }
+
+    .about-accent {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid var(--border);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .about-accent2 {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 100px;
+      height: 100px;
+      border: 2px solid var(--gold);
+      opacity: 0.5;
+    }
+
+    .about-text {}
+
+    .about-body {
+      font-size: 1.05rem;
+      color: var(--soft);
+      line-height: 1.9;
+      margin: 1.8rem 0 2.5rem;
+    }
+
+    .team-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--wine-mid);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .team-member {
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: rgba(252, 249, 242, 0.8);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .team-member:hover .team-avatar {
+      transform: scale(1.05);
+    }
+
+    .av1 {
+      background: linear-gradient(135deg, #4A1525, #99334D);
+    }
+
+    .av2 {
+      background: linear-gradient(135deg, #2A1018, #5A2033);
+    }
+
+    .av3 {
+      background: linear-gradient(135deg, #8C6A5A, #C29B70);
+    }
+
+    .team-name {
+      font-size: 0.95rem;
+      color: var(--wine-dark);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .team-role {
+      font-size: 0.75rem;
+      color: var(--soft);
+    }
+
+    /* ── INSTAGRAM STRIP ── */
+    .instagram-strip {
+      padding: 0 4rem 5rem;
+      background: var(--cream);
+    }
+
+    .insta-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .insta-handle {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--wine-mid);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .insta-handle:hover {
+      color: var(--gold-dark);
+    }
+
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+
+    .insta-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      border-radius: 4px;
+    }
+
+    .insta-fill {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .insta-item:hover .insta-fill {
+      transform: scale(1.1);
+    }
+
+    .insta-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(42, 8, 19, 0.4);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .insta-item:hover::after {
+      opacity: 1;
+    }
+
+    .i1 {
+      background: linear-gradient(135deg, #7A2841, #D4AF37);
+    }
+
+    .i2 {
+      background: linear-gradient(135deg, #4A1525, #8A3352);
+    }
+
+    .i3 {
+      background: linear-gradient(135deg, #2A0813, #52192A);
+    }
+
+    .i4 {
+      background: linear-gradient(135deg, #181014, #332128);
+    }
+
+    .i5 {
+      background: linear-gradient(135deg, #5C4A42, #A38275);
+    }
+
+    .i6 {
+      background: linear-gradient(135deg, #3A1020, #661D38);
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      background: var(--blush);
+      padding: 6rem 4rem;
+      position: relative;
+    }
+
+    #faq h2 {
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(74, 21, 37, 0.1);
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 1.6rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--wine-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .faq-q:hover {
+      color: var(--wine-mid);
+    }
+
+    .faq-icon {
+      font-size: 1.4rem;
+      color: var(--gold-dark);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      flex-shrink: 0;
+    }
+
+    .faq-a {
+      font-size: 0.95rem;
+      color: var(--soft);
+      line-height: 1.8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      color: var(--wine-mid);
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 250px;
+      padding-bottom: 1.6rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 5rem 4rem 2rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(122, 40, 65, 0.05), transparent 60%);
+      pointer-events: none;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-name span {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      font-size: 0.95rem;
+      color: rgba(252, 249, 242, 0.5);
+      line-height: 1.8;
+      max-width: 280px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(252, 249, 242, 0.6);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.35s ease;
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      transition: fill 0.35s ease;
+    }
+
+    .social-link.ig:hover {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      border-color: transparent;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(214, 36, 159, 0.4);
+    }
+
+    .social-link.fb:hover {
+      background: #1877F2;
+      border-color: transparent;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4);
+    }
+
+    .social-link.wa:hover {
+      background: #25D366;
+      border-color: transparent;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .social-link.tt:hover {
+      background: #010101;
+      border-color: transparent;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(1, 1, 1, 0.5);
+    }
+
+    .footer-col-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(252, 249, 242, 0.5);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+      padding-left: 5px;
+    }
+
+    .footer-contact-item {
+      font-size: 0.9rem;
+      color: rgba(252, 249, 242, 0.5);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(252, 249, 242, 0.3);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-location {
+      font-size: 0.8rem;
+      color: rgba(252, 249, 242, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── FIND US / MAP ── */
+    #findus {
+      background: var(--cream);
+      padding: 6rem 4rem;
+    }
+
+    .findus-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .findus-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .findus-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .findus-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--wine-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .findus-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gold);
+    }
+
+    .findus-text strong {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+
+    .findus-text span {
+      font-size: 1rem;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+
+    .map-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(42, 8, 19, 0.12);
+      border: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+      border: none;
+      filter: grayscale(20%) contrast(1.05);
+      transition: filter 0.3s ease;
+    }
+
+    .map-wrap:hover iframe {
+      filter: grayscale(0%) contrast(1);
+    }
+
+    .directions-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: linear-gradient(135deg, var(--wine-mid), var(--wine-dark));
+      color: var(--white);
+      font-size: 0.8rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .directions-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 21, 37, 0.35);
+    }
+
+    .directions-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 768px) {
+      #findus {
+        padding: 4rem 1.5rem;
+      }
+
+      .findus-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .map-wrap iframe {
+        height: 280px;
+      }
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    .wa-float svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    .wa-tooltip {
+      position: absolute;
+      right: 75px;
+      white-space: nowrap;
+      background: var(--wine-dark);
+      color: var(--cream);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 1rem;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .wa-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -5px;
+      transform: translateY(-50%);
+      border-width: 5px 0 5px 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--wine-dark);
+    }
+
+    .wa-float:hover .wa-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1.2rem 1.5rem;
+      }
+
+      .nav-logo {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        max-width: 75%;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-burger {
+        display: flex;
+      }
+
+      nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(252, 249, 242, 0.98);
+        padding: 2rem 1.5rem;
+        border-bottom: 1px solid var(--border-light);
+        gap: 1.5rem;
+        backdrop-filter: blur(10px);
+      }
+
+      #home {
+        padding: 5.5rem 1.5rem 3rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .hero-eyebrow {
+        line-height: 1.4;
+      }
+
+      .hero-content {
+        margin-bottom: 3rem;
+      }
+
+      .hero-collage {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        height: 380px;
+        margin-top: 1rem;
+      }
+
+      .collage-arch {
+        width: 160px;
+        height: 240px;
+        right: 5%;
+        top: 0;
+        font-size: 0.9rem;
+      }
+
+      .collage-circle {
+        width: 140px;
+        height: 140px;
+        left: 5%;
+        bottom: 30px;
+        font-size: 0.8rem;
+      }
+
+      .collage-blob {
+        width: 120px;
+        height: 120px;
+        left: 40%;
+        top: 40px;
+        font-size: 0.7rem;
+      }
+
+      .collage-bg-blob {
+        width: 220px;
+        height: 220px;
+      }
+
+      .collage-accent-1 {
+        width: 80px;
+        height: 80px;
+        right: -5px;
+        bottom: 20px;
+      }
+
+      .collage-accent-2 {
+        width: 60px;
+        height: 60px;
+        left: 30px;
+        top: -5px;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .services-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .gallery-item {
+        height: 280px;
+      }
+
+      .gallery-item:first-child {
+        grid-row: auto;
+        grid-column: auto;
+        height: 280px;
+      }
+
+      .book-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .book-form {
+        padding: 2rem 1.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-accent {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .insta-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .testimonials {
+        margin: 0 1.5rem 2rem;
+        padding: 3rem 1.5rem;
+      }
+
+      .instagram-strip {
+        padding: 0 1.5rem 3rem;
+      }
+
+      #faq {
+        padding: 4rem 1.5rem;
+      }
+
+      footer {
+        padding: 4rem 1.5rem 2rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo" style="display: flex; align-items: center;">
+      <img src="images/logo.png" alt="Abral Logo" style="height: 40px; margin-right: 10px; border-radius: 4px;">
+      <span>Abral Makeup, Veils <span>&</span> Bridals</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="https://wa.me/256755817021" target="_blank" rel="noopener" class="nav-cta">Book Now</a>
+    <button class="nav-burger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Kampala's Bridal, Makeup & Veil Specialists</div>
+      <h1>Where every bride becomes <em>unforgettable</em></h1>
+      <p class="hero-desc">From bridal makeup and veiling to kwanjula, hair styling and dress hire, we dress you for
+        every ceremony, every moment, every memory.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn-primary">Book a Consultation</a>
+        <a href="#portfolio" class="btn-outline">View Our Work</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Brides Served</div>
+        </div>
+        <div>
+          <div class="stat-num">6</div>
+          <div class="stat-label">Services Offered</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO COLLAGE -->
+    <div class="hero-collage">
+      <div class="collage-bg-blob"></div>
+
+      <div class="collage-shape collage-arch"
+        style="background-image: url('images/pinchu.jpg'); background-size: cover; background-position: center;">
+
+      </div>
+      <div class="collage-shape collage-circle"
+        style="background-image: url('images/pinchu\ 2.jpg'); background-size: cover; background-position: center;">
+
+      </div>
+      <div class="collage-shape collage-blob"
+        style="background-image: url('images/pinchu\ 3.jpg'); background-size: cover; background-position: center;">
+
+      </div>
+
+      <svg class="collage-accent-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4 6" />
+        <circle cx="50" cy="50" r="30" fill="none" stroke="var(--gold-light)" stroke-width="0.5" />
+        <circle cx="50" cy="50" r="15" fill="var(--gold-light)" opacity="0.1" />
+      </svg>
+
+      <svg class="collage-accent-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10,50 Q30,10 50,50 T90,50" fill="none" stroke="var(--wine-light)" stroke-width="2" />
+        <path d="M10,60 Q30,20 50,60 T90,60" fill="none" stroke="var(--gold)" stroke-width="1" />
+        <path d="M10,70 Q30,30 50,70 T90,70" fill="none" stroke="var(--wine-mid)" stroke-width="0.5" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-parallax-bg" id="servicesBg"></div>
+    <div class="services-header reveal-up">
+      <div>
+        <div class="section-label">What We Offer</div>
+        <h2>Services crafted<br>for your <em>special day</em></h2>
+      </div>
+      <p class="services-sub">Every service is tailored to honour your tradition, your style, and your story. Experience
+        luxury and care in every detail.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal-up delay-100">
+        <div class="service-num">01</div>
+        <div class="service-line"></div>
+        <div class="service-name">Bridal Makeup & Hair</div>
+        <p class="service-desc">Full bridal glam for your church ceremony or nikah — from natural glow to full glamour.
+        </p>
+      </div>
+      <div class="service-card reveal-up delay-200">
+        <div class="service-num">02</div>
+        <div class="service-line"></div>
+        <div class="service-name">Dress & Veil Hire</div>
+        <p class="service-desc">Stunning bridal gowns and veils available for hire — elegance without the full price
+          tag.</p>
+      </div>
+      <div class="service-card reveal-up delay-300">
+        <div class="service-num">03</div>
+        <div class="service-line"></div>
+        <div class="service-name">Kwanjula & Matron Attire</div>
+        <p class="service-desc">Matching gomesi and busuti sets for the entire bridal party — hire for the introduction
+          ceremony.</p>
+      </div>
+      <div class="service-card reveal-up delay-400">
+        <div class="service-num">04</div>
+        <div class="service-line"></div>
+        <div class="service-name">Makeup Training</div>
+        <p class="service-desc">Professional lessons for beginners and aspiring artists. Learn the craft, build your
+          career.</p>
+      </div>
+      <div class="service-card reveal-up delay-500">
+        <div class="service-num">05</div>
+        <div class="service-line"></div>
+        <div class="service-name">Photoshoot Styling</div>
+        <p class="service-desc">Professional makeup and styling for photoshoots — portfolio, events, and editorial
+          looks that shine on camera.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="gallery-intro reveal-up">
+      <div>
+        <div class="section-label">Our Work</div>
+        <h2>A gallery of <em>beautiful moments</em></h2>
+      </div>
+      <p class="gallery-sub">Real brides. Real ceremonies. Real joy captured through our dedicated artistry and passion.
+      </p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal-up delay-100">
+        <div class="gallery-placeholder g1"
+          style="background-image: url('images/pinchu\ 4.jpg'); background-size: cover; background-position: center;">
+          <div class="inner-text"></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-icon">+</div>
+        </div>
+        <div class="gallery-label">Bridal Look</div>
+      </div>
+      <div class="gallery-item reveal-up delay-200">
+        <div class="gallery-placeholder g2"
+          style="background-image: url('images/pinchu.jpg'); background-size: cover; background-position: center;">
+          <div class="inner-text"></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-icon">+</div>
+        </div>
+        <div class="gallery-label">Kwanjula Styling</div>
+      </div>
+      <div class="gallery-item reveal-up delay-300">
+        <div class="gallery-placeholder g3"
+          style="background-image: url('images/pinchu\ 2.jpg'); background-size: cover; background-position: center;">
+          <div class="inner-text"></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-icon">+</div>
+        </div>
+        <div class="gallery-label">Dress Hire</div>
+      </div>
+      <div class="gallery-item reveal-up delay-200">
+        <div class="gallery-placeholder g4"
+          style="background-image: url('images/pinchu\ 3.jpg'); background-size: cover; background-position: center;">
+          <div class="inner-text"></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-icon">+</div>
+        </div>
+        <div class="gallery-label">Matron Attire</div>
+      </div>
+      <div class="gallery-item reveal-up delay-300">
+        <div class="gallery-placeholder g5"
+          style="background-image: url('images/pinchu\ 4.jpg'); background-size: cover; background-position: center;">
+          <div class="inner-text"></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-icon">+</div>
+        </div>
+        <div class="gallery-label">Makeup Classes</div>
+      </div>
+    </div>
+    <div class="gallery-cta reveal-up delay-400">
+      <a href="https://instagram.com/abralmakeupandbridals" target="_blank" rel="noopener" class="btn-outline">See More
+        on
+        Instagram</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials reveal-up">
+    <h3>What our clients say</h3>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal-up delay-100">
+        <img src="images/pinchu.jpg" alt="Aisha M." class="testimonial-img">
+        <p class="testimonial-text">"Abral made me feel like an absolute queen on my wedding day. The makeup lasted all
+          day and all the photos look stunning. I felt so beautiful and confident."</p>
+        <div class="testimonial-author">— Aisha M., Kampala</div>
+      </div>
+      <div class="testimonial reveal-up delay-200">
+        <img src="images/pinchu 2.jpg" alt="Fatuma K." class="testimonial-img">
+        <p class="testimonial-text">"We hired the full kwanjula attire for 12 matrons and everything was perfect. The
+          team was so professional, on time, and everyone looked magnificent."</p>
+        <div class="testimonial-author">— Fatuma K., Entebbe</div>
+      </div>
+      <div class="testimonial reveal-up delay-300">
+        <img src="images/pinchu 3.jpg" alt="Sarah N." class="testimonial-img">
+        <p class="testimonial-text">"The dress hire was beautiful and affordable. I looked like a princess without
+          breaking the budget. Highly recommend their services to any bride-to-be!"</p>
+        <div class="testimonial-author">— Sarah N., Wakiso</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="section-label reveal-up">Shop</div>
+    <h2 class="reveal-up delay-100">Cosmetics & <em>accessories</em></h2>
+    <div class="shop-grid">
+      <div class="product-card reveal-up delay-100">
+        <div class="product-img p1"
+          style="background-image: url('images/matte.jpg'); background-size: cover; background-position: center;">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Matte Foundation</div>
+          <div class="product-type">Face — all skin tones</div>
+          <div class="product-price">UGX 45,000</div>
+        </div>
+      </div>
+      <div class="product-card reveal-up delay-200">
+        <div class="product-img p2"
+          style="background-image: url('images/velvet.jfif'); background-size: cover; background-position: center;">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Velvet Lip Colour</div>
+          <div class="product-type">Lips @ 12 shades</div>
+          <div class="product-price">UGX 28,000</div>
+        </div>
+      </div>
+      <div class="product-card reveal-up delay-300">
+        <div class="product-img p3"
+          style="background-image: url('images/shadow.jpg'); background-size: cover; background-position: center;">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Eyeshadow Palette</div>
+          <div class="product-type">Eyes @ 18 shades</div>
+          <div class="product-price">UGX 65,000</div>
+        </div>
+      </div>
+      <div class="product-card reveal-up delay-400">
+        <div class="product-img p4"
+          style="background-image: url('images/ear.jpeg'); background-size: cover; background-position: center;">
+        </div>
+        <div class="product-info">
+          <div class="product-name">Earrings</div>
+          <div class="product-type">Jewellery & ornaments</div>
+          <div class="product-price">UGX 20,000</div>
+        </div>
+      </div>
+    </div>
+    <div class="shop-footer reveal-up delay-200">
+      <p class="shop-footer-text">Want to order or ask about a product? Message us directly on WhatsApp.</p>
+      <a href="https://wa.me/256755817021" class="whatsapp-btn">
+        <span class="whatsapp-icon">&#9742;</span> Order via WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section id="book">
+    <div class="section-label reveal-up">Book Us</div>
+    <h2 class="reveal-up delay-100">Reserve your <em>date</em></h2>
+    <p class="book-sub reveal-up delay-200">Fill in the form below and we'll get back to you within 24 hours to confirm
+      your booking and start planning your perfect look.</p>
+    <div class="book-layout">
+      <form class="book-form reveal-up delay-300" id="bookingForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" placeholder="+256 7XX XXX XXX" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service">Service</label>
+            <select id="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="Bridal Makeup & Hair">Bridal Makeup & Hair</option>
+              <option value="Dress & Veil Hire">Dress & Veil Hire</option>
+              <option value="Kwanjula / Matron Attire Hire">Kwanjula / Matron Attire Hire</option>
+              <option value="Makeup Training">Makeup Training</option>
+              <option value="Photoshoot Styling">Photoshoot Styling</option>
+              <option value="Full Bridal Package">Full Bridal Package</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventDate">Event Date</label>
+            <input type="date" id="eventDate" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="notes">Additional Notes</label>
+          <textarea id="notes" placeholder="Tell us about your event, theme, or any special requests…"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Booking Request</button>
+      </form>
+
+      <div class="book-info">
+        <div class="book-info-item reveal-up delay-100">
+          <div class="book-info-label">Our Location</div>
+          <div class="book-info-value">Kampala, Uganda</div>
+          <div class="book-info-sub">Find us on Google Maps at Abral Makeup, Veiling and Bridals</div>
+        </div>
+        <div class="book-info-item reveal-up delay-200">
+          <div class="book-info-label">WhatsApp & Calls</div>
+          <div class="book-info-value"><a href="https://wa.me/256755817021" target="_blank" rel="noopener"
+              style="color:inherit;text-decoration:none;">+256 755 817 021</a></div>
+          <div class="book-info-sub">Mon – Sun, 8am – 9pm</div>
+        </div>
+        <div class="book-info-item reveal-up delay-300">
+          <div class="book-info-label">Pricing Guide</div>
+          <div class="pricing-grid">
+            <div class="price-item">
+              <div class="price-name">Bridal Makeup</div>
+              <div class="price-val">From 500k</div>
+            </div>
+            <div class="price-item">
+              <div class="price-name">Dress Hire</div>
+              <div class="price-val">From 200k</div>
+            </div>
+            <div class="price-item">
+              <div class="price-name">Kwanjula Package</div>
+              <div class="price-val">From 1M</div>
+            </div>
+            <div class="price-item">
+              <div class="price-name">Training</div>
+              <div class="price-val">From 500k</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-layout">
+      <div class="about-img-wrap reveal-up">
+        <div class="about-img"
+          style="background-image: url('images/story.jpg'); background-size: cover; background-position: center;">
+          <div class="about-img-inner">Your photo here</div>
+        </div>
+        <div class="about-accent"></div>
+        <div class="about-accent2"></div>
+      </div>
+      <div class="about-text">
+        <div class="section-label reveal-up">Our Story</div>
+        <h2 class="reveal-up delay-100">Beauty rooted in <em>Ugandan tradition</em></h2>
+        <p class="about-body reveal-up delay-200">Abral Makeup, Veiling and Bridals was born from a deep love for
+          Ugandan celebrations, the colour of kwanjula, the grace of a bridal procession, the joy that fills every
+          ceremony. We bring professional artistry and heartfelt dedication to every client we serve, whether it's your
+          first makeup lesson or your wedding day. Every look we create is an ode to elegance.</p>
+        <div class="team-label reveal-up delay-300">Meet Our Artists</div>
+        <div class="team-grid">
+          <div class="team-member reveal-up delay-300">
+            <div class="team-avatar av1"
+              style="background-image: url('images/lead.jpg'); background-size: cover; background-position: center;">
+            </div>
+            <div class="team-name">Abral</div>
+            <div class="team-role">Lead Artist & Founder</div>
+          </div>
+          <div class="team-member reveal-up delay-400">
+            <div class="team-avatar av2"
+              style="background-image: url('images/bride-1.png'); background-size: cover; background-position: center;">
+            </div>
+            <div class="team-name">Sawya</div>
+            <div class="team-role">Bridal Stylist</div>
+          </div>
+          <div class="team-member reveal-up delay-500">
+            <div class="team-avatar av3"
+              style="background-image: url('images/bride-1.png'); background-size: cover; background-position: center;">
+            </div>
+            <div class="team-name">Leila</div>
+            <div class="team-role">Hair Specialist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <div class="instagram-strip reveal-up">
+    <div class="insta-header">
+      <div class="section-label" style="margin-bottom:0">Follow Our Work</div>
+      <a href="https://www.instagram.com/abralmakeupandbridals" target="_blank" rel="noopener"
+        class="insta-handle">&#9654;
+        @abralmakeupandbridals</a>
+    </div>
+    <div class="insta-grid">
+      <div class="insta-item reveal-up delay-100">
+        <div class="insta-fill i1"
+          style="background-image: url('images/pinchu.jpg'); background-size: cover; background-position: center;">
+        </div>
+      </div>
+      <div class="insta-item reveal-up delay-200">
+        <div class="insta-fill i2"
+          style="background-image: url('images/pinchu\ 2.jpg'); background-size: cover; background-position: center;">
+        </div>
+      </div>
+      <div class="insta-item reveal-up delay-300">
+        <div class="insta-fill i3"
+          style="background-image: url('images/lead.jpg'); background-size: cover; background-position: center;">
+        </div>
+      </div>
+      <div class="insta-item reveal-up delay-400">
+        <div class="insta-fill i4"
+          style="background-image: url('images/pinchu\ 3.jpg'); background-size: cover; background-position: center;">
+        </div>
+      </div>
+      <div class="insta-item reveal-up delay-500">
+        <div class="insta-fill i5"
+          style="background-image: url('images/story.jpg'); background-size: cover; background-position: center;">
+        </div>
+      </div>
+      <div class="insta-item reveal-up delay-500">
+        <div class="insta-fill i6"
+          style="background-image: url('images/pinchu\ 4.jpg'); background-size: cover; background-position: center;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-label reveal-up" style="justify-content: center;">FAQ</div>
+    <h2 class="reveal-up delay-100">Common <em>questions</em></h2>
+    <div class="faq-list">
+      <div class="faq-item reveal-up delay-200">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          How far in advance should I book? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">We recommend booking at least 4 to 6 weeks before your event, especially for weekend
+          weddings.
+          For peak wedding seasons, book as early as possible to secure your date.</div>
+      </div>
+      <div class="faq-item reveal-up delay-300">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          Do you travel to the event venue? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes! We offer on-location services across Kampala and surrounding areas. Travel fees may
+          apply depending on distance. Contact us for details.</div>
+      </div>
+      <div class="faq-item reveal-up delay-400">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          How does dress and attire hire work? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">You choose your dress or kwanjula attire, pay a hire deposit, and collect it 1-2 days before
+          your event. Return is arranged after the ceremony. National ID is required. We handle cleaning, you just enjoy
+          the day.</div>
+      </div>
+      <div class="faq-item reveal-up delay-500">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          What is included in the bridal package? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Bridal packages depend on which function. Our full bridal package includes makeup, bridal
+          attires, hair styling or veil styling and henna. If a trial session is needed, it comes with its own cost
+          aside. We can
+          customise packages to include dress hire and matron attire for the whole function.</div>
+      </div>
+      <div class="faq-item reveal-up delay-500">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          Can I pay via Mobile Money? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Absolutely. We accept MTN Mobile Money, Airtel Money(including withdraw charges), and cash. A
+          deposit is required to
+          confirm your booking.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND US -->
+  <section id="findus">
+    <div class="gallery-intro reveal-up" style="margin-bottom: 3rem;">
+      <div>
+        <div class="section-label">Visit Us</div>
+        <h2>Find us in <em>Kampala</em></h2>
+      </div>
+      <p class="gallery-sub">We're located in the heart of Kampala. Walk in or book an appointment and we'll be ready
+        for you.</p>
+    </div>
+    <div class="findus-inner">
+      <div class="findus-info reveal-up">
+        <div class="findus-detail">
+          <div class="findus-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+          <div class="findus-text">
+            <strong>Location</strong>
+            <span>Abral Makeup, Veiling and Bridals<br>Kampala, Uganda</span>
+          </div>
+        </div>
+        <div class="findus-detail">
+          <div class="findus-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+          </div>
+          <div class="findus-text">
+            <strong>WhatsApp &amp; Calls</strong>
+            <span><a href="https://wa.me/256755817021" target="_blank" rel="noopener" style="color:inherit;">+256 755
+                817 021</a></span>
+          </div>
+        </div>
+        <div class="findus-detail">
+          <div class="findus-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+            </svg>
+          </div>
+          <div class="findus-text">
+            <strong>Working Hours</strong>
+            <span>Monday – Sunday<br>8:00 am – 9:00 pm</span>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/place/Abral+Makeup,+Veiling+and+Bridals/@0.365592,32.5633841,17z"
+          target="_blank" rel="noopener" class="directions-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M21.71 11.29l-9-9a1 1 0 00-1.42 0l-9 9a1 1 0 000 1.42l9 9a1 1 0 001.42 0l9-9a1 1 0 000-1.42zM14 14.5V12h-4v3H8v-4a1 1 0 011-1h5V7.5l3.5 3.5-3.5 3.5z" />
+          </svg>
+          Get Directions
+        </a>
+      </div>
+      <div class="map-wrap reveal-up delay-200">
+        <iframe src="https://maps.google.com/maps?q=0.3655866,32.565959&hl=en&z=17&output=embed" allowfullscreen
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Abral Makeup, Veiling and Bridals Location"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="reveal-up delay-100">
+        <div class="footer-brand-name">Abral Makeup, Veils <span>&</span> Bridals</div>
+        <p class="footer-tagline">Kampala's trusted bridal beauty house, serving Ugandan brides with artistry,
+          tradition, and grace.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/abralmakeupandbridals" target="_blank" rel="noopener"
+            class="social-link ig" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/Abralmkeuphairnveiling" target="_blank" rel="noopener"
+            class="social-link fb" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="https://wa.me/256755817021" target="_blank" rel="noopener" class="social-link wa"
+            aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@abralmakeupveilsbridals" target="_blank" rel="noopener"
+            class="social-link tt" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.53V6.77a4.85 4.85 0 01-1.01-.08z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="reveal-up delay-200">
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Bridal Makeup & Hair</a></li>
+          <li><a href="#services">Dress & Veil Hire</a></li>
+          <li><a href="#services">Kwanjula Attire</a></li>
+          <li><a href="#services">Makeup Training</a></li>
+          <li><a href="#services">Photoshoot Styling</a></li>
+        </ul>
+      </div>
+      <div class="reveal-up delay-300">
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#book">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="reveal-up delay-400">
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">Kampala, Uganda</div>
+        <div class="footer-contact-item"><a href="https://wa.me/256755817021" target="_blank" rel="noopener"
+            style="color:inherit;text-decoration:none;">+256 755 817 021</a></div>
+        <div class="footer-contact-item">Mon – Sun<br>8:00am – 9:00pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom reveal-up delay-500">
+      <span class="footer-copy">&copy; 2026 Abral Makeup, Veiling & Bridals. All rights reserved.</span>
+      <span class="footer-location">&#9679; Kampala, Uganda</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/256755817021" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <div class="wa-tooltip">Chat with us</div>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <script>
+    // Mobile Nav Toggle
+    function toggleNav() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('open');
+    }
+
+    // FAQ Accordion
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Form Submission
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      const originalText = btn.textContent;
+      btn.textContent = 'Request Sent!';
+      btn.style.background = '#2A6E3A';
+      btn.style.color = 'white';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navbar').classList.remove('open'));
+    });
+
+    // Smooth navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.style.padding = '1rem 4rem';
+        nav.style.background = 'rgba(252, 249, 242, 0.98)';
+        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+      } else {
+        nav.style.padding = '1.4rem 4rem';
+        nav.style.background = 'rgba(252, 249, 242, 0.85)';
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // Adjust padding for mobile scroll
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    function handleMobileNavScroll(e) {
+      if (e.matches) {
+        window.addEventListener('scroll', () => {
+          const nav = document.getElementById('navbar');
+          if (window.scrollY > 50) {
+            nav.style.padding = '1rem 1.5rem';
+          } else {
+            nav.style.padding = '1.2rem 1.5rem';
+          }
+        });
+      }
+    }
+    mediaQuery.addListener(handleMobileNavScroll);
+    handleMobileNavScroll(mediaQuery);
+
+    // Scroll Reveal Animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealElements = document.querySelectorAll('.reveal-up');
+
+      const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, revealOptions);
+
+      revealElements.forEach(el => {
+        revealObserver.observe(el);
+      });
+    });
+
+    // Parallax Scrolling
+    const heroBg = document.querySelector('.hero-bg');
+    const servicesBg = document.getElementById('servicesBg');
+    const collage = document.querySelector('.hero-collage');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      // Hero parallax — background drifts slower than scroll
+      if (heroBg) {
+        heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
+      }
+      // Hero collage parallax — drifts at a different rate for layered effect
+      if (collage) {
+        collage.style.transform = `translateY(calc(-50% + ${scrollY * 0.15}px))`;
+      }
+      // Services background parallax
+      if (servicesBg) {
+        const servicesEl = document.getElementById('services');
+        if (servicesEl) {
+          const rect = servicesEl.getBoundingClientRect();
+          const offset = (window.innerHeight / 2 - rect.top) * 0.18;
+          servicesBg.style.transform = `translateY(${offset}px)`;
+        }
+      }
+    }, { passive: true });
+  </script>
+</body>
+
+</html>
