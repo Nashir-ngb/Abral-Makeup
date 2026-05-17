@@ -2049,11 +2049,21 @@
       }
 
       .book-form {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         background: rgba(255, 255, 255, 0.04);
         border-color: rgba(212, 175, 55, 0.15);
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .form-submit {
+        width: 100%;
+        align-self: stretch;
+        text-align: center;
       }
 
       .form-row {
@@ -2064,10 +2074,34 @@
         display: none;
       }
 
+      .book-info {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
       .book-info-item {
         background: rgba(0, 0, 0, 0.25);
         width: 100%;
         box-sizing: border-box;
+        text-align: center;
+      }
+
+      .book-info-item:hover {
+        transform: none;
+      }
+
+      .book-info-label,
+      .book-info-value,
+      .book-info-sub {
+        text-align: center;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-item {
+        text-align: center;
       }
 
       .about-layout {
